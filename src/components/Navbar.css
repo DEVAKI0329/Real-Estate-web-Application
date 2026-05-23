@@ -1,0 +1,70 @@
+/* src/components/Navbar.css */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  transition: all 0.3s ease;
+}
+.navbar-transparent {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.navbar-solid {
+  background: rgba(253,250,245,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px; gap: 24px;
+}
+.navbar-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-display); font-size: 20px; font-weight: 600;
+  color: var(--charcoal); flex-shrink: 0;
+}
+.navbar-transparent .navbar-logo { color: white; }
+.logo-icon { font-size: 22px; color: var(--gold); }
+.logo-text em { font-style: italic; color: var(--gold); }
+
+.navbar-links {
+  display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center;
+}
+.nav-link {
+  padding: 8px 14px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500;
+  color: var(--muted); transition: var(--transition);
+}
+.nav-link:hover, .nav-link.active { color: var(--charcoal); background: var(--cream); }
+.navbar-transparent .nav-link { color: rgba(255,255,255,0.8); }
+.navbar-transparent .nav-link:hover { color: white; background: rgba(255,255,255,0.15); }
+
+.navbar-auth { display: flex; align-items: center; }
+.user-menu { display: flex; align-items: center; gap: 10px; }
+.user-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--gold); color: white; font-weight: 600; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.user-name { font-size: 14px; font-weight: 500; color: var(--charcoal); }
+.navbar-transparent .user-name { color: white; }
+.auth-btns { display: flex; align-items: center; gap: 8px; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: var(--transition); }
+.navbar-transparent .hamburger span { background: white; }
+
+.mobile-menu {
+  background: white; border-top: 1px solid var(--border);
+  padding: 16px 24px 24px; display: flex; flex-direction: column; gap: 4px;
+}
+.mobile-link {
+  padding: 12px 8px; font-size: 15px; color: var(--charcoal);
+  border-bottom: 1px solid var(--border); display: block;
+  font-family: var(--font-body); transition: var(--transition);
+}
+.mobile-link:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .navbar-links, .navbar-auth { display: none; }
+  .hamburger { display: flex; }
+  .navbar-inner { height: 64px; }
+}
